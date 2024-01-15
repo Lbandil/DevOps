@@ -53,7 +53,6 @@ stages:
     projectJsonPath: '$(Build.SourcesDirectory)\${{ parameters.projectPath }}'
     orchestratorConnection: 'UiPath2'
     outputPath: '$(Build.ArtifactStagingDirectory)\Output'
-        outputPath: '$(Build.ArtifactStagingDirectory)\Output'
     # Publish the nuget package for later stages.
     - publish: $(Build.ArtifactStagingDirectory)\Output
       artifact: drop
