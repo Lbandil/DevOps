@@ -47,6 +47,12 @@ stages:
         versionType: ${{ parameters.versioningStrategy }}
         projectJsonPath: '$(Build.SourcesDirectory)\${{ parameters.projectPath }}'
         orchestratorConnection: UiPath2  # Update this to a service connection for your Orchestrator.
+- task: UiPathPack@4
+  inputs:
+    versionType: 'AutoVersion'
+    projectJsonPath: '$(Build.SourcesDirectory)\${{ parameters.projectPath }}'
+    orchestratorConnection: 'UiPath2'
+    outputPath: '$(Build.ArtifactStagingDirectory)\Output'
         outputPath: '$(Build.ArtifactStagingDirectory)\Output'
     # Publish the nuget package for later stages.
     - publish: $(Build.ArtifactStagingDirectory)\Output
