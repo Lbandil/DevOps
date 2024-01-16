@@ -19,7 +19,7 @@ stages:
   - stage: Build
     jobs:
       - job: BuildJob
-        pool: Default
+        pool: selfhosted-lbandil
         workspace:
           clean: all
         steps:
