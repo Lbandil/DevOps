@@ -28,8 +28,8 @@ stages:
               parameters.versioningStrategy }}, environments: ${{
               parameters.environments }}"
             displayName: Log parameters
-          - task: UiPathInstallPlatform@2
-          - task: UiPathPack@2
+          - task: UiPathInstallPlatform@4
+          - task: UiPathPack@4
             inputs:
               versionType: ${{ parameters.versioningStrategy }}
               projectJsonPath: $(Build.SourcesDirectory)\${{ parameters.projectPath }}
@@ -48,8 +48,8 @@ stages:
         steps:
           - download: current
             artifact: drop
-          - task: UiPathInstallPlatform@2
-          - task: UiPathDeploy@2
+          - task: UiPathInstallPlatform@4
+          - task: UiPathDeploy@4
             inputs:
               orchestratorConnection: UiPath2
               packagesPath: $(Pipeline.Workspace)\drop
@@ -61,7 +61,7 @@ stages:
       - job: CreateAssests
         pool: Default
         steps:
-          - task: UiPathAssets@2
+          - task: UiPathAssets@4
             inputs:
               orchestratorConnection: UiPath2
               folderName: ${{ parameters.folderName }}
@@ -75,7 +75,7 @@ stages:
       - job: TestDEV
         pool: Default
         steps:
-          - task: UiPathTest@2
+          - task: UiPathTest@4
             inputs:
               testTarget: TestSet
               orchestratorConnection: UiPath2
@@ -97,8 +97,8 @@ stages:
               steps:
                 - download: current
                   artifact: drop
-                - task: UiPathInstallPlatform@2
-                - task: UiPathDeploy@2
+                - task: UiPathInstallPlatform@4
+                - task: UiPathDeploy@4
                   inputs:
                     orchestratorConnection: UiPath2
                     packagesPath: $(Pipeline.Workspace)\drop
