@@ -44,10 +44,10 @@ stages:
             artifact: drop
   - stage: DeployToTest
     condition: and(succeeded('Build'),
-      startsWith(variables['Build.SourceBranchName'], 'development'))
+      startsWith(variables['Build.SourceBranchName'], 'Dev'))
     jobs:
       - job: DeployToTestJob
-        pool: Default
+        pool: selfhosted-lbandil
         workspace:
           clean: all
         steps:
@@ -78,7 +78,7 @@ stages:
     condition: succeeded()
     jobs:
       - job: TestDEV
-        pool: Default
+        pool: selfhosted-lbandil
         steps:
           - task: UiPathTest@4
             inputs:
