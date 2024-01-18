@@ -54,6 +54,11 @@ stages:
           - download: current
             artifact: drop
           - task: UiPathInstallPlatform@4
+          - task: UseDotNet@2
+            inputs:
+              packageType: 'sdk'
+              version: 
+              includePreviewVersions: true
           - task: UiPathDeploy@4
             inputs:
               orchestratorConnection: UiPath2
