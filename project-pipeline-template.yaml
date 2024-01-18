@@ -58,7 +58,7 @@ stages:
             inputs:
               orchestratorConnection: UiPath2
               packagesPath: $(Pipeline.Workspace)\drop
-              folderName: ${{ parameters.folderName }}
+              folderName: Shared
               environments: ${{ parameters.environments }}
   - stage: Assest
     displayName: Create Assests
