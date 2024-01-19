@@ -63,13 +63,13 @@ stages:
             inputs:
               orchestratorConnection: UiPath2
               packagesPath: $(Pipeline.Workspace)\drop
-              folderName: ${{ parameters.folderName }}
+              folderName: Shared
               environments: ${{ parameters.environments }}
   - stage: Assest
     displayName: Create Assests
     jobs:
       - job: CreateAssests
-        pool: Default
+        pool: selfhosted-lbandil
         steps:
           - task: UiPathAssets@4
             inputs:
