@@ -34,6 +34,7 @@ stages:
               packageType: 'sdk'
               version: 
               includePreviewVersions: true
+
           - task: UiPathPack@4
             inputs:
               versionType: ${{ parameters.versioningStrategy }}
