@@ -29,11 +29,6 @@ stages:
               parameters.environments }}"
             displayName: Log parameters
           - task: UiPathInstallPlatform@4
-          - task: UseDotNet@2
-            inputs:
-              packageType: 'sdk'
-              version: 
-              includePreviewVersions: true
           - task: UiPathPack@4
             inputs:
               versionType: ${{ parameters.versioningStrategy }}
