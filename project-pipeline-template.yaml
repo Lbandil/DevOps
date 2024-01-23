@@ -60,11 +60,12 @@ stages:
               packageType: 'sdk'
               version: 
               includePreviewVersions: true
+              
           - task: UiPathDeploy@4
             inputs:
               orchestratorConnection: UiPath2
               packagesPath: $(Pipeline.Workspace)\drop
-              folderName: Shared
+              folderName: 'Shared'
               environments: ${{ parameters.environments }}
   - stage: Assest
     displayName: Create Assests
