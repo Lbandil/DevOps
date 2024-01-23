@@ -19,7 +19,7 @@ stages:
   - stage: Build
     jobs:
       - job: BuildJob
-        pool: selfhosted-lbandil
+        pool: Selfhosted
         workspace:
           clean: all
         steps:
@@ -48,7 +48,7 @@ stages:
       startsWith(variables['Build.SourceBranchName'], 'Dev'))
     jobs:
       - job: DeployToTestJob
-        pool: selfhosted-lbandil
+        pool: Selfhosted
         workspace:
           clean: all
         steps:
@@ -65,7 +65,7 @@ stages:
     displayName: Create Assests
     jobs:
       - job: CreateAssests
-        pool: selfhosted-lbandil
+        pool: Selfhosted
         steps:
           - task: UiPathAssets@4
             inputs:
@@ -79,7 +79,7 @@ stages:
     condition: succeeded()
     jobs:
       - job: TestDEV
-        pool: selfhosted-lbandil
+        pool: Selfhosted
         steps:
           - task: UiPathTest@4
             inputs:
